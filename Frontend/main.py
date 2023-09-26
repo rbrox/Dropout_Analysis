@@ -2,7 +2,7 @@
 import streamlit as st
 
 import joblib
-from functions import get_all_models, load_model, get_state_data, get_states
+from functions import get_all_models, load_model, get_state_data, get_states, clean_user_data, predict
 
 
 
@@ -24,15 +24,21 @@ st.write(""" ### 📚 Government's Education Goal: ✨ High dropout rates at sch
 # Specify model to load
 models = get_all_models()
 
-uploaded_file = st.file_uploader("Upload a CSV file to get analysis", type=["csv"])
+byte_file = st.file_uploader("Upload a CSV file to get analysis", type=["csv"])
 
-if uploaded_file is not None:
+if byte_file is not None:
     st.write("File upload Sucessfull!")
+    st.write("Provided" + str(byte_file))
+    bytes_data = byte_file.getvalue()
+    st.write(bytes_data)
     
-    data = uploaded_file.read()
+    #data = clean_user_data(data)
+    
+    selected_model = st.selectbox("Select a Model", get_all_models())
     st.write("Analyzing you data:") 
+    #st.write(data)
+    #st.write(predict(selected_model, data))
 
-selected_model = st.selectbox("Select a Model", get_all_models())
 
 
 

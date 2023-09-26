@@ -41,6 +41,24 @@ def load_model(model_name):
         pass
     # Add more models as needed
 
+def clean_user_data(path):
+    df = pd.read_csv(path)
+    #if df.index != 
+    if 'Target' in df.index: 
+        df.drop("Target", inplace = True)
+    df.head()
+
+def predict(model_name, data):
+    paths = ['knn_model.pkl', 'nb_model.pkl', 'svm_model.pkl']
+    
+    if model_name == 'knn_model':
+        model = joblib.load(paths[0])
+    elif model_name == 'nb_model':
+        model = joblib.load(paths[1])
+    else :
+        model = joblib.load(paths[2])
+        
+    return model.predict(data)
 
 def main():
     get_state_data('Andhra Pradesh')
