@@ -1,22 +1,35 @@
-# knn_app.py
+# Streamlit UI
 import streamlit as st
 import joblib
+from functions import get_all_models, load_model, get_state_data, get_states
 
-# Load the pickled KNN model
-knn_model = joblib.load('./knn_model.pkl')
+
 
 # Streamlit app
-st.title('Dropout Analysis')
-st.write('This web application is powered by the following models:\n Feel free to choose whichever you like\n ')
+st.title('Problem Statement')
+st.write(""" ### 📚 Government's Education Goal: ✨ High dropout rates at schools due to poverty and social factors. Analyzing 👇
 
-# Check if the model has a feature_names_ attribute (for scikit-learn models)
-if hasattr(knn_model, 'feature_names_'):
-    # Get the feature names
-    feature_names = knn_model.feature_names_
+1. 🏫 School-wise
+2. 🌍 Area-wise
+3. 👧🧑 Gender-wise
+4. 🕊️ Caste-wise
+5. 📆 Age/Grade-wise
 
-    # Display the feature names in Streamlit
-    st.title('Model Features')
-    st.write('List of Features:')
-    st.write(feature_names)
-else:
-    st.warning('This model does not have feature names.')
+📊 Benefits: Informed policies, equitable access, social equity, economic growth, prosperity 🚀""")
+
+# Current Analysis
+st.title('Why')
+st.write(""" Justification
+         
+         """)
+
+selected_state = st.selectbox("State", get_states())
+
+
+# Specify model to load
+models = get_all_models()
+
+selected_model = st.selectbox("Select a Model", get_all_models())
+
+
+
