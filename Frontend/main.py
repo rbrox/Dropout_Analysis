@@ -1,6 +1,6 @@
 # Streamlit UI
 import streamlit as st
-
+import pandas as pd
 import joblib
 from functions import get_all_models, load_model, get_state_data, get_states, clean_user_data, predict
 
@@ -24,20 +24,24 @@ st.write(""" ### 📚 Government's Education Goal: ✨ High dropout rates at sch
 # Specify model to load
 models = get_all_models()
 
-byte_file = st.file_uploader("Upload a CSV file to get analysis", type=["csv"])
+byte_file = st.file_uploader("upload a csv file to get analysis: ")
+#data = pd.read_csv('data.csv', delimiter=';')
+if byte_file is not None : 
+    st.write("file uploaded successfully")
+    #read df
+    df = pd.read_csv(byte_file, delimiter=",")
+    st.write(type(byte_file))
+    
+    df = clean_user_data(df)
+    st.write(df)
+    st.write(df.dtypes)
+    
+    selected_model = st.selectbox("Select a Model", get_all_models())   
+    st.write("Analyzing your data:") 
+    model = load_model(selected_model)
+    op = model.predict(df)
+    st.write(op)
 
-if byte_file is not None:
-    st.write("File upload Sucessfull!")
-    st.write("Provided" + str(byte_file))
-    bytes_data = byte_file.getvalue()
-    st.write(bytes_data)
-    
-    #data = clean_user_data(data)
-    
-    selected_model = st.selectbox("Select a Model", get_all_models())
-    st.write("Analyzing you data:") 
-    #st.write(data)
-    #st.write(predict(selected_model, data))
 
 
 

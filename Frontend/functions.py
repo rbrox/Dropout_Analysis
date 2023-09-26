@@ -34,19 +34,30 @@ def get_all_models():
 def load_model(model_name):
     models = get_all_models()
     if model_name == models[0]:
-        
+        path = models[0] + '.pkl'
+        with open(path, 'rb') as f:
+            model = joblib.load(f)
         pass
     elif model_name == models[1]:
-        
+        if model_name == models[1]:
+            path = models[1] + '.pkl'
+        with open(path, 'rb') as f:
+            model = joblib.load(f)
         pass
+    
+    else:
+        if model_name == models[2]:
+            path = models[2] + '.pkl'
+        with open(path, 'rb') as f:
+            model = joblib.load(f)
+            
+    return model
     # Add more models as needed
 
-def clean_user_data(path):
-    df = pd.read_csv(path)
-    #if df.index != 
-    if 'Target' in df.index: 
-        df.drop("Target", inplace = True)
-    df.head()
+def clean_user_data(df):
+    
+    df.drop("Target", axis = 1,inplace = True)
+    return df
 
 def predict(model_name, data):
     paths = ['knn_model.pkl', 'nb_model.pkl', 'svm_model.pkl']
