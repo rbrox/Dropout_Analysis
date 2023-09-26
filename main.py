@@ -32,7 +32,7 @@ if byte_file is not None :
     df = pd.read_csv(byte_file, delimiter=",")
     st.write(type(byte_file))
     
-    df = clean_user_data(df)
+    #df = clean_user_data(df)
     st.write(df)
     st.write(df.dtypes)
     
