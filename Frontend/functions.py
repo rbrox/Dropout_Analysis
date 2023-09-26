@@ -17,9 +17,9 @@ def get_all_state_data():
 
 def get_state_data(state_code):
     df = get_all_state_data()
+    print(df.to_dict())
+    return df.to_dict()
     
-    attr = df.columns
-    val = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     
     """
     state_data = df[df['State/UTs'] == state_code]

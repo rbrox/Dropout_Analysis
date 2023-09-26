@@ -18,24 +18,22 @@ st.write(""" ### 📚 Government's Education Goal: ✨ High dropout rates at sch
 
 📊 Benefits: Informed policies, equitable access, social equity, economic growth, prosperity 🚀""")
 
-# Current Analysis
-st.title('Why')
-st.write(""" Justification
-         
-         """)
-
-
-
-selected_state = st.selectbox("State", get_states())
-data = get_state_data(selected_state)
-st.bar_chart(data)
 
 
 
 # Specify model to load
 models = get_all_models()
 
+uploaded_file = st.file_uploader("Upload a CSV file to get analysis", type=["csv"])
+
+if uploaded_file is not None:
+    st.write("File upload Sucessfull!")
+    
+    data = uploaded_file.read()
+    st.write("Analyzing you data:") 
+
 selected_model = st.selectbox("Select a Model", get_all_models())
+
 
 
 
