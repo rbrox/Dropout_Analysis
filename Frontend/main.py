@@ -1,5 +1,6 @@
 # Streamlit UI
 import streamlit as st
+
 import joblib
 from functions import get_all_models, load_model, get_state_data, get_states
 
@@ -24,6 +25,9 @@ st.write(""" Justification
          """)
 
 selected_state = st.selectbox("State", get_states())
+data = get_state_data(selected_state)
+bar = data.plot.bar(x = data.columns)
+
 
 
 # Specify model to load
