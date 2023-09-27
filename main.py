@@ -14,7 +14,7 @@ st.write(""" ### Government's Education Goal:
 #### Features(For Prediction)
 1. 🏫 School-wise
 2. 🌍 Area-wise
-3. 👧🧑 Gender-wise
+3. 👧 Gender-wise
 4. 🕊️ Caste-wise
 5. 📆 Age/Grade-wise
 
@@ -24,11 +24,14 @@ st.write(""" ### Government's Education Goal:
 
 """)
 
+st.write("---")
+st.title('⚙️Model Info')
 # Model Info
 selected_model = st.selectbox("See Model data", get_all_models())   
 get_model_data(selected_model)
 
-
+st.write("---")
+st.title("🚀Use the Model")
 # Specify model to load
 models = get_all_models()
 
@@ -55,7 +58,9 @@ if byte_file is not None :
     st.write(op)
    
 
-st.write('### Team Members')
+st.write("---")
+
+st.title(' Team Members')
 st.write("""
          
         1. Sreethi
