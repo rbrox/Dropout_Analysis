@@ -39,23 +39,22 @@ models = get_all_models()
 byte_file = st.file_uploader("upload a csv file to get analysis: ")
 #data = pd.read_csv('data.csv', delimiter=';')
 if byte_file is not None : 
-    st.write("file uploaded successfully")
+    st.write("Uploaded Data")
     #read df
     df = pd.read_csv(byte_file, delimiter=",")
-    st.write(type(byte_file))
     
-    #df = clean_user_data(df)
     st.write(df)
-    st.write(df.dtypes)
+    
     
     selected_model = st.selectbox("Select a Model", get_all_models())   
-    st.write("Analyzing your data:") 
+    st.write("#### Analysis Results:") 
     
     
     model = load_model(selected_model)
     
     op = model.predict(df).tolist()
     st.write(list_analysis(op))
+    st.write('#### Raw Predictions')
     st.write(op)
 
 st.sidebar.title('🏆Acheivers')
