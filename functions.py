@@ -1,6 +1,8 @@
 import streamlit as st
 import joblib
 import pandas as pd
+import streamlit as st
+from sklearn.metrics import classification_report
 
 
 def get_states():
@@ -19,6 +21,18 @@ def get_state_data(state_code):
     df = get_all_state_data()
     print(df.to_dict())
     return df.to_dict()
+    
+def get_model_data(model_name):
+    models = get_all_models()
+    if model_name == models[0]:
+        st.write('#### K Nearest Neighbours')
+        pass
+    elif model_name == models[1]:
+        st.write('#### Naive Bayes')
+        pass
+    else:
+        st.write('#### Support Vector Machines')
+    
     
     
     """
@@ -44,7 +58,6 @@ def load_model(model_name):
         with open(path, 'rb') as f:
             model = joblib.load(f)
         pass
-    
     else:
         if model_name == models[2]:
             path = models[2] + '.pkl'
@@ -70,6 +83,26 @@ def predict(model_name, data):
         model = joblib.load(paths[2])
         
     return model.predict(data)
+
+def model_analysis(output_list):
+    return (output_list.unique().count())
+    ...
+    
+def list_analysis(data):
+    
+    true_count = data.count(True)
+    false_count = data.count(False)
+    total_count = len(data)
+    
+    drop_rate = f"{round(float(true_count/total_count) * 100, 4)} %"
+    info = {
+        'Dropout Count' : true_count,
+        'Graduate Count' : false_count,
+        'Total Count': total_count,
+        'Dropout Percentage': drop_rate
+    }
+    
+    return info
 
 def main():
     get_state_data('Andhra Pradesh')

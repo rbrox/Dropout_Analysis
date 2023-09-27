@@ -2,7 +2,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
-from functions import get_all_models, load_model, get_state_data, get_states, clean_user_data, predict
+from functions import get_all_models, load_model, get_state_data, get_states, clean_user_data, predict, get_model_data, list_analysis
 
 
 
@@ -21,13 +21,12 @@ st.write(""" ### Government's Education Goal:
 #### Benefits:
 1. Dropout Statistics and Management
 2. Tailored Policy making
-3.
-4.
-5.
+
 """)
 
+# Model Info
 selected_model = st.selectbox("See Model data", get_all_models())   
-
+get_model_data(selected_model)
 
 
 # Specify model to load
@@ -47,10 +46,14 @@ if byte_file is not None :
     
     selected_model = st.selectbox("Select a Model", get_all_models())   
     st.write("Analyzing your data:") 
+    
+    
     model = load_model(selected_model)
-    op = model.predict(df)
+    
+    op = model.predict(df).tolist()
+    st.write(list_analysis(op))
     st.write(op)
-
+   
 
 st.write('### Team Members')
 st.write("""
