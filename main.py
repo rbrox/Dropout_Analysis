@@ -62,6 +62,7 @@ st.sidebar.title('🏆Acheivers')
    
 st.sidebar.write(""" ### ☁︎ Cloud Deployment """)
 st.sidebar.image('./QR.jpg', caption='Our App', width=150)
+st.sidebar.markdown('[🌐Share](https://atjwry7gacj3pbytaewvmu.streamlit.app/)')
 
 st.sidebar.title(' Team Members')
 st.sidebar.write("""         
