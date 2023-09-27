@@ -60,7 +60,7 @@ if byte_file is not None :
 
 st.write("---")
 st.title('☁︎ Cloud Deployment')
-st.image('./QR.jpg', caption='Our App', use_column_width=True)
+st.image('./QR.jpg', caption='Our App', width=180)
 
 st.write("---")
 st.title(' Team Members')

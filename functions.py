@@ -25,13 +25,27 @@ def get_state_data(state_code):
 def get_model_data(model_name):
     models = get_all_models()
     if model_name == models[0]:
+        
         st.write('#### K Nearest Neighbours')
+        st.write("""
+                 The KNN algorithm assumes that similar things exist in close proximity. In other words, similar things are near to each other.
+KNN aims for pattern recognition tasks.
+The algorithm gets significantly slower as the number of examples and/or predictors/independent variables increase.
+                 """)
         pass
     elif model_name == models[1]:
         st.write('#### Naive Bayes')
+        st.write("""
+                 Naïve Bayes is a probabilistic machine learning algorithm based on the Bayes Theorem, used in a wide variety of classification tasks.
+ Bayes Theorem provides a principled way for calculating the conditional probability.
+                 """)
         pass
     else:
         st.write('#### Support Vector Machines')
+        st.write("""
+                 SVM works by mapping data to a high-dimensional feature space so that data points can be categorized, even when the data are not otherwise linearly separable. A separator between the categories is found, then the data are transformed in such a way that the separator could be drawn as a hyperplane.
+SVM is a powerful supervised algorithm that works best on smaller datasets but on complex ones. Support Vector Machine, abbreviated as SVM can be used for both regression and classification tasks
+                 """)
     
     
     
