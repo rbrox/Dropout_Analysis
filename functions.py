@@ -32,6 +32,8 @@ def get_model_data(model_name):
 KNN aims for pattern recognition tasks.
 The algorithm gets significantly slower as the number of examples and/or predictors/independent variables increase.
                  """)
+        
+        return './knn1.png'
         pass
     elif model_name == models[1]:
         st.write('#### Naive Bayes')
@@ -39,6 +41,8 @@ The algorithm gets significantly slower as the number of examples and/or predict
                  Naïve Bayes is a probabilistic machine learning algorithm based on the Bayes Theorem, used in a wide variety of classification tasks.
  Bayes Theorem provides a principled way for calculating the conditional probability.
                  """)
+        #st.image('./nb1.jpg', width=150)
+        return './nb1.png'
         pass
     else:
         st.write('#### Support Vector Machines')
@@ -46,6 +50,8 @@ The algorithm gets significantly slower as the number of examples and/or predict
                  SVM works by mapping data to a high-dimensional feature space so that data points can be categorized, even when the data are not otherwise linearly separable. A separator between the categories is found, then the data are transformed in such a way that the separator could be drawn as a hyperplane.
 SVM is a powerful supervised algorithm that works best on smaller datasets but on complex ones. Support Vector Machine, abbreviated as SVM can be used for both regression and classification tasks
                  """)
+        #st.image('./svm1.jpg', width=150)
+        return './svm1.jpg'
     
     
     

@@ -7,7 +7,7 @@ from functions import get_all_models, load_model, get_state_data, get_states, cl
 
 
 # Streamlit app
-st.title('🏆Acheivers')
+
 st.write(""" ### Government's Education Goal: 
         High dropout rates at schools due to poverty and social factors. Analyzing 
 
@@ -28,7 +28,8 @@ st.write("---")
 st.title('⚙️Model Info')
 # Model Info
 selected_model = st.selectbox("See Model data", get_all_models())   
-get_model_data(selected_model)
+path = get_model_data(selected_model)
+st.image(path , use_column_width=True)
 
 st.write("---")
 st.title("🚀Use the Model")
@@ -56,16 +57,14 @@ if byte_file is not None :
     op = model.predict(df).tolist()
     st.write(list_analysis(op))
     st.write(op)
+
+st.sidebar.title('🏆Acheivers')
    
+st.sidebar.write(""" ### ☁︎ Cloud Deployment """)
+st.sidebar.image('./QR.jpg', caption='Our App', width=150)
 
-st.write("---")
-st.title('☁︎ Cloud Deployment')
-st.image('./QR.jpg', caption='Our App', width=180)
-
-st.write("---")
-st.title(' Team Members')
-st.write("""
-         
+st.sidebar.title(' Team Members')
+st.sidebar.write("""         
         1. Sreethi
         2. Mallika
         3. Rishav
