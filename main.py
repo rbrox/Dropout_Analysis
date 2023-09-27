@@ -7,17 +7,26 @@ from functions import get_all_models, load_model, get_state_data, get_states, cl
 
 
 # Streamlit app
-st.title('Problem Statement')
-st.write(""" ### 📚 Government's Education Goal: ✨ High dropout rates at schools due to poverty and social factors. Analyzing 👇
+st.title('🏆Acheivers')
+st.write(""" ### Government's Education Goal: 
+        High dropout rates at schools due to poverty and social factors. Analyzing 
 
+#### Features(For Prediction)
 1. 🏫 School-wise
 2. 🌍 Area-wise
 3. 👧🧑 Gender-wise
 4. 🕊️ Caste-wise
 5. 📆 Age/Grade-wise
 
-📊 Benefits: Informed policies, equitable access, social equity, economic growth, prosperity 🚀""")
+#### Benefits:
+1. Dropout Statistics and Management
+2. Tailored Policy making
+3.
+4.
+5.
+""")
 
+selected_model = st.selectbox("See Model data", get_all_models())   
 
 
 
@@ -43,7 +52,16 @@ if byte_file is not None :
     st.write(op)
 
 
-
+st.write('### Team Members')
+st.write("""
+         
+        1. Sreethi
+        2. Mallika
+        3. Rishav
+        4. Shahshank
+        5. Rishika
+        6. Vidhisha
+         """)
 
 
 
